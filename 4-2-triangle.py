@@ -11,7 +11,7 @@ GPIO.setup(dac, GPIO.OUT)
 
 x = 0
 a = 1
-T = input("Type a period: ")
+T = input("Input a period: ")
 
 try:
     while(True):

@@ -13,7 +13,7 @@ try:
     while(1):
         x = int(input("Input the duty cycle: "))
         p.ChangeDutyCycle(x)
-        print("Volt: ", 3.3*x/100)
+        print("Ideal voltage: ", 3.3*x/100)
 
 finally:
     p.stop()

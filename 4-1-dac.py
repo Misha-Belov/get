@@ -20,14 +20,13 @@ try:
                 print(f"Voltage is {voltage:.4} V")
             else:
                 if num < 0:
-                    print("Number have to be >=0! Try again...")
+                    print("Number have to be >=0")
                 elif num > 255:
-                    print("Number is out of range [0,255]! Try again...")  
+                    print("Number have to be <= 255")  
         except Exception:
             if num == "q": break
-            print("You have to type a number, not string! Try again...")
+            print("not a number")
 
 finally:
     GPIO.output(dac, 0)
     GPIO.cleanup()
-    print("EOP")
