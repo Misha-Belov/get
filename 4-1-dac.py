@@ -4,28 +4,27 @@ import time
 dac = [8, 11, 7, 1, 0, 5, 12, 6]
 
 def dec2bin(value):
-    return [int(el) for el in bin(value)[2:].zfill(8)]
+    return [int(i) for i in bin(value)[2:].zfill(8)]
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(dac, GPIO.OUT)
 
 try:
     while True:
-        num = input("Type a number from 0 to 255: ")
         try:
-            num = int(num)
+            num = int(input())
             if 0 <= num <= 255:
                 GPIO.output(dac, dec2bin(num))
                 voltage = float(num) / 256.0 * 3.3
-                print(f"Voltage is {voltage:.4} V")
+                print(f"{voltage:.4} В")
             else:
                 if num < 0:
-                    print("Number have to be >=0")
+                    print("Введите число больше 0")
                 elif num > 255:
-                    print("Number have to be <= 255")  
-        except Exception:
-            if num == "q": break
-            print("not a number")
+                    print("Введите число меьше 255")  
+        except:
+            if num == str: break
+            print("Это не число")
 
 finally:
     GPIO.output(dac, 0)
